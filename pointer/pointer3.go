@@ -32,4 +32,25 @@ func main() {
 	x, y := 1, 2
 	Swap(&x, &y)
 	fmt.Println(x, y)
+
+	n, m := 1, 2
+	Swap2(&n, &m)
+	fmt.Println(n, m)
+	fmt.Println(&n, &m)
+}
+
+func Swap2(n_ptr, m_ptr *int) {
+	buf := n_ptr
+	//	fmt.Println(n_ptr, buf)
+	//	fmt.Println(*n_ptr, *buf)
+	n_ptr = m_ptr
+	//	fmt.Println(n_ptr, m_ptr)
+	//	fmt.Println(*n_ptr, *m_ptr)
+	m_ptr = buf
+	//	fmt.Println(n_ptr, m_ptr)
+	//	fmt.Println(*n_ptr, *m_ptr)
+
+	// 変数に代入されているポインタを入れ替えても、
+	// 中の値が書き換わっているわけではないので、
+	// 元の値(n, m)が書き換わることはない。
 }
